@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
+    <link rel="stylesheet" href="../static/producto.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AcuyuI-ST6y9lYOTGQfB0KkbJLgIr-n1Tiqu51gMlc8Z9AwZTMS_BUq-gtzXjNWOLzV0F-Wgg0BdjeLB&currency=MXN"></script> <!-- Agrega el script de PayPal -->
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo"><a href="index.html">Tienda Online</a></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="detalle-producto">
+            <img id="producto-img" src="{{ url_for('static', filename='img/' + producto.imagen) }}" alt="Producto">
+            <div class="info">
+                <h2 id="producto-nombre">{{ producto.nombre }}</h2>
+                <p id="producto-desc">{{ producto.descripcion }}</p>
+                <h3 id="producto-precio">${{ producto.precio }}</h3>
+                <!-- Aquí se coloca el contenedor para el botón de PayPal -->
+                <div id="paypal-button-container"></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Tienda Online - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        paypal.Buttons({
+    createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: '{{ producto.precio }}'
+                },
+                description: '{{ producto.nombre }}'
+            }]
+        }).then(function(orderId) {
+            console.log(orderId);
+            return orderId;
+        });
+    },
+    onApprove: function(data, actions) {
+    return actions.order.capture().then(function(details) {
+        // Obtener el nombre del pagador directamente de los detalles de PayPal
+        let payerName = details.payer.name.given_name;
+
+        // Redirigir a la página de pago exitoso pasando el nombre del pagador
+        window.location.href = "{{ url_for('pago_exitoso') }}?paymentId=" + data.orderID + "&PayerID=" + data.payerID + "&payerName=" + payerName;
+    });
+},
+
+    onError: function(err) {
+        console.error(err);
+        alert("Hubo un error en el proceso de pago.");
+    }
+}).render('#paypal-button-container');
+
+    </script>
+    
+</body>
+</html>

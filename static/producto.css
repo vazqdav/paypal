@@ -1,0 +1,151 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Fondo gris suave */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Encabezado */
+header {
+    background-color: #000; /* Fondo negro */
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* Azul brillante para el logo */
+}
+
+/* Detalle del producto */
+#detalle-producto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 40px;
+}
+
+#producto-img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info {
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.info p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+#producto-precio {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00aaff; /* Azul brillante para el precio */
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #00aaff; /* Azul */
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0077cc; /* Azul oscuro al pasar el ratón */
+}
+
+/* Pie de página */
+footer {
+    background-color: #000; /* Fondo negro */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+main {
+    min-height: calc(100vh - 80px); /* Ajusta según el tamaño del header y footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Para tablets (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    #detalle-producto {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #producto-img {
+        max-width: 300px; /* Reducir tamaño en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 90%;
+    }
+}
+
+/* Para celulares (pantallas menores a 480px) */
+@media (max-width: 480px) {
+    #producto-img {
+        max-width: 250px; /* Imagen más pequeña */
+    }
+
+    .info h2 {
+        font-size: 20px; /* Reducir el tamaño del título */
+    }
+
+    #producto-precio {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px; /* Ajustar tamaño del botón */
+        padding: 10px;
+    }
+}
+/* Elimina el subrayado y cambia el color de los enlaces */
+a {
+    text-decoration: none;
+    color: inherit;  /* Esto hará que el enlace herede el color del texto alrededor */
+}
+
+/* Cambia el color de los títulos y precios dentro de los enlaces */
+.producto a h3, .producto a p {
+    color: #000; /* O el color que prefieras */
+}

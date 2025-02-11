@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Exitoso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="success-message">
+            <h1>¡Pago Exitoso! 🎉</h1>
+            <p>Gracias por tu compra, <strong>{{ payerName }}</strong>.</p>
+            <p>Tu pago con PayPal ha sido procesado correctamente.</p>
+            
+            <div class="details">
+                <p><strong>ID de Pago:</strong> {{ paymentId }}</p>
+                <p><strong>ID del Pagador:</strong> {{ payerId }}</p>
+            </div>
+            <a href="{{ url_for('descargar_pdf', paymentId=paymentId, PayerID=payerId, payerName=payerName) }}" class="btn">
+                Descargar Recibo PDF
+            </a>            
+
+            <a href="{{ url_for('index') }}" class="btn">Volver a la Tienda</a>
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .success-message h1 {
+            color: #000000;
+        }
+        .details {
+            text-align: left;
+            margin: 20px 0;
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #000000;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #444444;
+        }
+    </style>
+</body>
+</html>

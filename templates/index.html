@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <script defer src="../static/scripts.js"></script>
+</head>
+<body>
+    <header>
+        <div class="nav-bar">
+            <div class="logo"><a href="index.html">Tienda</a></div>
+            <input type="text" class="search-bar" placeholder="Buscar productos...">
+            
+            <!-- Botón menú hamburguesa -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Carrito</a></li>
+                    <li><a href="#">Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="banner">
+            <h2>Encuentra todo lo que necesitas</h2>
+        </section>
+
+        <section id="categorias">
+            <h2>Categorías</h2>
+            <div class="categorias-container">
+                <div class="categoria">Ropa</div>
+                <div class="categoria">Electrónica</div>
+                <div class="categoria">Hogar</div>
+                <div class="categoria">Deportes</div>
+            </div>
+        </section>
+
+        <section id="productos">
+            <h2>Productos Destacados</h2>
+            <div class="productos-container">
+                <div class="producto">
+                    <a href="{{ url_for('producto_detalle', producto_id=1) }}">
+                        <img src="../static/img/playera.webp" alt="playera.webp">
+                        <h3>Playera tipo polo color blanco</h3>
+                        <p>$20</p>
+                    </a>                    
+                </div>
+                <div class="producto">
+                    <a href="{{ url_for('producto_detalle', producto_id=2) }}">
+                        <img src="../static/img/mochila.webp" alt="Producto 2">
+                        <h3>Mochila color café</h3>
+                        <p>$300</p>
+                    </a>
+                </div>
+                <div class="producto">
+                    <a href="{{ url_for('producto_detalle', producto_id=3) }}">
+                        <img src="../static/img/teniz.webp" alt="Producto 3">
+                        <h3>Tenis color blanco con café</h3>
+                        <p>$700</p>
+                    </a>
+                </div>
+            </div>
+        </section>        
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Tienda Online - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

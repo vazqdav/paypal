@@ -1,0 +1,290 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Fondo gris suave */
+    color: #333; /* Color de texto oscuro */
+}
+
+/* Encabezado */
+header {
+    background-color: #000; /* Fondo negro */
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #eceff0; /* Azul brillante para el logo */
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    width: 50%;
+    padding: 8px;
+    border: 2px solid #00aaff; /* Borde azul */
+    border-radius: 5px;
+    background-color: white;
+}
+
+/* Menú de navegación */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #00aaff; /* Azul al pasar el ratón */
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Banner */
+#banner {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #000; /* Fondo negro */
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Categorías */
+#categorias {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.categorias-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.categoria {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.categoria:hover {
+    background-color: #00aaff; /* Azul al pasar el ratón */
+    color: white;
+}
+
+/* Productos */
+#productos {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.productos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.producto {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #00aaff; /* Azul */
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+}
+
+button:hover {
+    background-color: #0077cc; /* Azul oscuro al pasar el ratón */
+}
+
+/* Pie de página */
+footer {
+    background-color: #000; /* Fondo negro */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* ---- RESPONSIVE ---- */
+
+/* Para tablets (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    /* Mostrar botón hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Ocultar el menú por defecto */
+    nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        padding: 10px;
+    }
+
+    /* Ocultar la barra de búsqueda en tablets */
+    .search-bar {
+        display: none;
+    }
+
+    #detalle-producto {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #producto-img {
+        max-width: 300px; /* Reducir tamaño en pantallas más pequeñas */
+    }
+
+    .info {
+        width: 90%;
+    }
+}
+
+/* Para celulares (pantallas menores a 480px) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    #producto-img {
+        max-width: 250px; /* Imagen más pequeña */
+    }
+
+    .info h2 {
+        font-size: 20px; /* Reducir el tamaño del título */
+    }
+
+    #producto-precio {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px; /* Ajustar tamaño del botón */
+        padding: 10px;
+    }
+}
+/* Asegura que no haya desplazamiento horizontal */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+header {
+    width: 100vw; /* Ocupa toda la pantalla */
+}
+
+/* Pie de página */
+footer {
+    width: 100vw; /* Asegura que el footer también cubra toda la pantalla */
+}
+
+/* Corrección para dispositivos móviles */
+@media (max-width: 768px) {
+    .nav-bar {
+        width: 100%; /* Se asegura de no exceder el ancho */
+        padding: 0 10px; /* Evita que los elementos se desborden */
+    }
+
+    .search-bar {
+        width: 100%; /* Ajusta la barra de búsqueda al ancho */
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+}
+/* Elimina el subrayado y cambia el color de los enlaces */
+a {
+    text-decoration: none;
+    color: inherit;  /* Esto hará que el enlace herede el color del texto alrededor */
+}
+
+/* Cambia el color de los títulos y precios dentro de los enlaces */
+.producto a h3, .producto a p {
+    color: #000; /* O el color que prefieras */
+}
