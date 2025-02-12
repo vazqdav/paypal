@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Configuración de PayPal (deberás ingresar tus credenciales de PayPal)
 paypalrestsdk.configure({
-    "mode": "sandbox",  # Cambia "live para pagos reales" y "sandbox para pruebas"
+    "mode": "",  # Pon "live para pagos reales" y "sandbox para pruebas"
     "client_id": "tu client id aquí",  # Reemplaza con tu Client ID
     "client_secret": "tu client secret aquí"  # Reemplaza con tu Client Secret
 })
